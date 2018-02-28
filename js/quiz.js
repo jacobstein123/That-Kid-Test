@@ -1,4 +1,4 @@
-var json = { title: "Product Feedback Survey Example", showProgressBar: false, pages: [
+var json = { title: "Product Feedback Survey Example", pages: [
     {questions: [
         { type: "matrix", name: "Quality", title: "Please indicate if you agree or disagree with the following statements",
             columns: [{ value: 1, text: "Strongly Disagree" },
