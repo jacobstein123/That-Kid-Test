@@ -1,11 +1,11 @@
-var json = { title: "Product Feedback Survey Example", pages: [
+var json = {pages: [
     {questions: [
-        { type: "matrix", name: "Quality", title: "Please indicate if you agree or disagree with the following statements",
-            columns: [{ value: 1, text: "Strongly Disagree" },
-                { value: 2, text: "Disagree" },
-                { value: 3, text: "Neutral" },
-                { value: 4, text: "Agree" },
-                { value: 5, text: "Strongly Agree" }],
+        { type: "matrix", name: "Quality",
+            columns: [{ value: 1, text: "Never" },
+                { value: 2, text: "Rarely" },
+                { value: 3, text: "Sometimes" },
+                { value: 4, text: "Often" },
+                { value: 5, text: "Always" }],
             rows: [{ value: "affordable", text: "Product is affordable" },
                 { value: "does what it claims", text: "Product does what it claims" },
                 { value: "better then others", text: "Product is better than other products on the market" },
