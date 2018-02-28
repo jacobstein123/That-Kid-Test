@@ -7,34 +7,34 @@ var json = {
             columns: [
                 {
                     value: 1,
-                    text: "Strongly Disagree"
+                    text: "Never"
                 }, {
                     value: 2,
-                    text: "Disagree"
+                    text: "Rarely"
                 }, {
                     value: 3,
-                    text: "Neutral"
+                    text: "Sometimes"
                 }, {
                     value: 4,
-                    text: "Agree"
+                    text: "Often"
                 }, {
                     value: 5,
-                    text: "Strongly Agree"
+                    text: "Always"
                 }
             ],
             rows: [
                 {
-                    value: "affordable",
-                    text: "Product is affordable"
+                    value: "1",
+                    text: "I correct my professor."
                 }, {
-                    value: "does what it claims",
-                    text: "Product does what it claims"
+                    value: "2",
+                    text: "I speak more frequently than my peers."
                 }, {
-                    value: "better then others",
-                    text: "Product is better than other products on the market"
+                    value: "3",
+                    text: "My peers make meaningful contributions to discussions."
                 }, {
-                    value: "easy to use",
-                    text: "Product is easy to use"
+                    value: "4",
+                    text: "I make meaningful contributions to discussions."
                 }
             ]
         }
