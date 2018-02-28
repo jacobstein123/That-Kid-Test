@@ -1,6 +1,6 @@
 var json = {pages: [
     {questions: [
-        { type: "matrix", name: "Quality",
+        { type: "matrix",
             columns: [{ value: 1, text: "Never" },
                 { value: 2, text: "Rarely" },
                 { value: 3, text: "Sometimes" },
@@ -22,4 +22,6 @@ model.onComplete.add(function(result) {
   console.log(JSON.stringify(result.data));
 });
 
-$("#surveyElement").Survey({model:model});
+$("#surveyElement").Survey({model:model
+                            data: data
+                           });
