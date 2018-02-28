@@ -18,5 +18,8 @@ Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
 Survey.Survey.cssType = "bootstrap";
 
 var model = new Survey.Model(json);
+model.onComplete.add(function(result) {
+  console.log(JSON.stringify(result.data));
+});
 
 $("#surveyElement").Survey({model:model});
