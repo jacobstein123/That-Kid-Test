@@ -70,11 +70,14 @@ var json = {
 Survey.defaultBootstrapCss.navigationButton = "btn btn-primary btn-xl";
 Survey.Survey.cssType = "bootstrap";
 
+var result1;
+var result2;
+
 var model = new Survey.Model(json);
 model
     .onComplete
     .add(function (result) {
-        console.log("result: " + JSON.stringify(result.data));
+        result1 = result;
         document.getElementById("intro2_div").style.display = "block";
         document.getElementById('portfolio').scrollIntoView(true);
     });
@@ -165,7 +168,153 @@ var model2 = new Survey.Model(json2);
 model2
     .onComplete
     .add(function (result) {
-        console.log("result: " + JSON.stringify(result.data));
+        result2 = result;
+        console.log("result1: " + JSON.stringify(result1.data));
+        console.log("result2: " + JSON.stringify(result2.data));
+
+        var tkness = 0.0;
+        var tkness_count = 0;
+
+        var hostility = 0.0;
+        var hostility_count = 0;
+
+        var faculty = 0.0;
+        var faculty_count = 0;
+
+        var peer = 0.0;
+        var peer_count = 0;
+
+        result1 = result1.data["Quality"];
+        result2 = result2.data["Quality"];
+        //result1:
+        tkness += parseInt(result1["1"])/5.0;
+        tkness_count++;
+        hostility += parseInt(result1["1"]) / 5.0;
+        hostility_count++;
+        faculty += parseInt(result1["1"]) / 5.0;
+        faculty_count++;
+
+        tkness += parseInt(result1["2"]) / 5.0;
+        tkness_count++;
+        peer += parseInt(result1["2"]) / 5.0;
+        peer_count++;
+
+        tkness += (5 - parseInt(result1["3"])) / 5.0;
+        tkness_count++;
+        peer += (5 - parseInt(result1["3"])) / 5.0;
+        peer_count++;
+
+        tkness += parseInt(result1["4"]) / 5.0;
+        tkness_count++;
+
+        tkness += parseInt(result1["5"]) / 5.0;
+        tkness_count++;
+        faculty += parseInt(result1["5"]) / 5.0;
+        faculty_count++;
+
+        tkness += (5 - parseInt(result1["6"])) / 5.0;
+        tkness_count++;
+        peer += (5 - parseInt(result1["6"])) / 5.0;
+        peer_count++;
+        faculty += (5 - parseInt(result1["6"])) / 5.0;
+        faculty_count++;
+
+        tkness += parseInt(result1["7"]) / 5.0;
+        tkness_count++;
+        hostility += parseInt(result1["7"]) / 5.0;
+        hostility_count++;
+        faculty += parseInt(result1["7"]) / 5.0;
+        faculty_count++;
+
+        tkness += parseInt(result1["8"]) / 5.0;
+        tkness_count++;
+        hostility += parseInt(result1["8"]) / 5.0;
+        hostility_count++;
+        faculty += parseInt(result1["8"]) / 5.0;
+        faculty_count++;
+        peer += parseInt(result1["8"]) / 5.0;
+        peer_count++;
+
+        tkness += parseInt(result1["9"]) / 5.0;
+        tkness_count++;
+        hostility += parseInt(result1["9"]) / 5.0;
+        hostility_count++
+        faculty += parseInt(result1["9"]) / 5.0;
+        faculty_count++;
+
+        tkness += parseInt(result1["10"]) / 5.0;
+        tkness_count++;
+        peer += parseInt(result1["10"]) / 5.0;
+        peer_count++;
+
+        tkness += parseInt(result1["11"]) / 5.0;
+        tkness_count++;
+
+        tkness += parseInt(result1["12"]) / 5.0;
+        tkness_count++;
+
+        //result2:
+        tkness += (7 - parseInt(result2["1"])) / 7.0;
+        tkness_count++;
+        peer += (7 - parseInt(result2["1"])) / 7.0;
+        peer_count++;
+
+        tkness += parseInt(result2["2"]) / 7.0;
+        tkness_count++;
+
+        tkness += parseInt(result2["3"]) / 7.0;
+        tkness_count++;
+        peer += parseInt(result2["3"]) / 7.0;
+        peer_count++;
+
+        tkness += parseInt(result2["4"]) / 7.0;
+        tkness_count++;
+        faculty += parseInt(result2["4"]) / 7.0;
+        faculty_count++;
+
+        tkness += parseInt(result2["5"]) / 7.0;
+        tkness_count++;
+        faculty += parseInt(result2["5"]) / 7.0;
+        faculty_count++;
+
+        tkness += parseInt(result2["6"]) / 7.0;
+        tkness_count++;
+        peer += parseInt(result2["6"]) / 7.0;
+        peer_count++;
+
+        tkness += parseInt(result2["7"]) / 7.0;
+        tkness_count++;
+        peer += parseInt(result2["7"]) / 7.0;
+        peer_count++;
+
+        tkness += parseInt(result2["8"]) / 7.0;
+        tkness_count++;
+        faculty += parseInt(result2["8"]) / 7.0;
+        faculty_count++;
+
+        tkness += parseInt(result2["9"]) / 7.0;
+        tkness_count++;
+
+        tkness += (7 - parseInt(result2["10"])) / 7.0;
+        tkness_count++;
+        faculty += (7 - parseInt(result2["10"])) / 7.0;
+        faculty_count++;
+
+        tkness += parseInt(result2["11"]) / 7.0;
+        tkness_count++;
+        peer += parseInt(result2["11"]) / 7.0;
+        peer_count++;
+        faculty += parseInt(result2["11"]) / 7.0;
+        faculty_count++;
+
+        tkness += parseInt(result2["12"]) / 7.0;
+        tkness_count++;
+
+        console.log("TKNESS: " + tkness/tkness_count 
+            + "\nHOSTILITY: " + hostility/hostility_count 
+            + "\nPEER: " + peer/peer_count
+            + "\nFACULTY: " + faculty/faculty_count);
+
         //document.getElementById("intro2_div").style.display = "block";
         document.getElementById('portfolio').scrollIntoView(true);
     });
