@@ -53,12 +53,15 @@ var json = {
                     text: "I have underqualified professors."
                 }, {
                     value: "10",
-                    text: "I answer my peer's questions before my professor does."
+                    text: "I answer my peers' questions before my professor does."
                 }, {
                     value: "11",
                     text: "I refer to texts that were not assigned for class."
                 }, {
                     value: "12",
+                    text: "My contributions lead to further discussion in class."
+                }, {
+                    value: "13",
                     text: "I discuss assigned readings even when I did not do the readings because I can make\
                             a meaningful contribution without having read it."
                 }
@@ -158,6 +161,9 @@ var json2 = {
                     text: "Peers and professors do not seem to understand my point right away, so I have to elaborate for a long time."
                 }, {
                     value: "12",
+                    text: "The person next to me thinks I am smart."
+                }, {
+                    value: "13",
                     text: "I am a that kid."
                 }
             ],
@@ -185,6 +191,9 @@ model2
 
         var peer = 0.0;
         var peer_count = 0;
+
+        var intelligence = 0.0;
+        var intelligence_count = 0;
 
         result1 = result1.data["Quality"];
         result2 = result2.data["Quality"];
@@ -252,7 +261,10 @@ model2
         tkness += parseInt(result1["11"]) / 5.0;
         tkness_count++;
 
-        tkness += parseInt(result1["12"]) / 5.0;
+        intelligence += parseInt(result1["13"]) / 5.0;
+        intelligence_count++;
+
+        tkness += parseInt(result1["13"]) / 5.0;
         tkness_count++;
 
         //result2:
@@ -315,10 +327,14 @@ model2
         faculty += parseInt(result2["11"]) / 7.0;
         faculty_count++;
 
-        tkness += parseInt(result2["12"]) / 7.0;
+        intelligence += parseInt(result2["12"]) / 7.0;
+        intelligence_count++;
+
+        tkness += parseInt(result2["13"]) / 7.0;
         tkness_count++;
 
         var tkness_percent = tkness/tkness_count;
+        var intelligence_percent = intelligence/intelligence_count;
         var hostility_percent = hostility/hostility_count;
         var peer_percent = peer/peer_count;
         var faculty_percent = faculty/faculty_count;
@@ -332,11 +348,23 @@ model2
             "IHF":"The Critic",
             "IHP":"The Asshole",
             "INP":"The Guest Lecturer",
-            "INF":"The Disciple"
+            "INF":"The Disciple",
+            "UHF":"The Heckler",
+            "UHP":"The Flailer",
+            "UNP":"The Rambler",
+            "UNF":"The Suck-up"
         };
 
-        var description = "<b>I</b>ntelligent";
-        var tktype = "I";
+        var description = "";
+        var tktype = "";
+        if (intelligence_percent >= .5) {
+            tktype += "I";
+            description += " <b>I</b>ntelligent";
+        }
+        else {
+            tktype += "U";
+            description += " <b>U</b>nintelligent";
+        }
         if (hostility_percent >= .5) {
             tktype += "H";
             description += " <b>H</b>ostile";
