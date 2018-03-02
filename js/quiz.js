@@ -161,7 +161,7 @@ var json2 = {
             ],
         }
     ],
-    completedHtml:"thanks"
+    completedHtml:" "
 };
 
 var model2 = new Survey.Model(json2);
@@ -266,6 +266,8 @@ model2
         tkness_count++;
         peer += parseInt(result2["3"]) / 7.0;
         peer_count++;
+        hostility += parseInt(result2["3"]) / 7.0;
+        hostility_count++;
 
         tkness += parseInt(result2["4"]) / 7.0;
         tkness_count++;
@@ -281,6 +283,8 @@ model2
         tkness_count++;
         peer += parseInt(result2["6"]) / 7.0;
         peer_count++;
+        hostility += parseInt(result2["3"]) / 7.0;
+        hostility_count++;
 
         tkness += parseInt(result2["7"]) / 7.0;
         tkness_count++;
@@ -291,6 +295,8 @@ model2
         tkness_count++;
         faculty += parseInt(result2["8"]) / 7.0;
         faculty_count++;
+        hostility += parseInt(result2["3"]) / 7.0;
+        hostility_count++;
 
         tkness += parseInt(result2["9"]) / 7.0;
         tkness_count++;
@@ -310,10 +316,53 @@ model2
         tkness += parseInt(result2["12"]) / 7.0;
         tkness_count++;
 
+        var tkness_percent = tkness/tkness_count;
+        var hostility_percent = hostility/hostility_count;
+        var peer_percent = peer/peer_count;
+        var faculty_percent = faculty/faculty_count;
+
         console.log("TKNESS: " + tkness/tkness_count 
             + "\nHOSTILITY: " + hostility/hostility_count 
             + "\nPEER: " + peer/peer_count
             + "\nFACULTY: " + faculty/faculty_count);
+
+        var names = {
+            "IHF":"The Critic",
+            "IHP":"The Asshole",
+            "INP":"The Guest Lecturer",
+            "INF":"The Disciple"
+        };
+
+        var description = "<b>I</b>ntelligent";
+        var tktype = "I";
+        if (hostility_percent >= .5) {
+            tktype += "H";
+            description += " <b>H</b>ostile";
+        }
+        else{
+            tktype += "N";
+            description += " <b>N</b>on-hostile";
+        }
+        if (peer_percent > faculty_percent) {
+            tktype += "P";
+            description += " <b>P</b>eer-oriented";
+        }
+        else{
+            tktype += "F";
+            description += " <b>F</b>aculty-oriented";
+        }
+        if (tkness_percent < .5){
+            document.getElementById("result").innerHTML = "You are not a That Kid!\
+                Confidence: "+(Math.round(100 * (1 - tkness_percent))) + 
+                "%</br> But if you were, your TK type would be...</br>\
+                <font size=8><b>"+ tktype+": "+names[tktype] + "</b></font></br>"+description;
+        }
+        else {
+            document.getElementById("result").innerHTML = "You are a That Kid!\
+                Confidence: "+(Math.round(100 * tkness_percent)) + "%</br>\
+                Your TK type is...</br><font size=8><b>" + tktype+": "+names[tktype] + "</b></font></br>"+description;
+        }
+        document.getElementById("intro1").innerHTML = "";
 
         //document.getElementById("intro2_div").style.display = "block";
         document.getElementById('portfolio').scrollIntoView(true);
