@@ -4,6 +4,7 @@ var json = {
             type: "matrix",
             name: "Quality",
             title: "Please rate the following statements to the best of your ability",
+            isAllRowRequired: "true",
             columns: [
                 {
                     value: 1,
@@ -25,7 +26,7 @@ var json = {
             rows: [
                 {
                     value: "1",
-                    text: "I correct my professor."
+                    text: "I correct my professor.",
                 }, {
                     value: "2",
                     text: "I speak more frequently than my peers."
@@ -96,6 +97,7 @@ var json2 = {
             type: "matrix",
             name: "Quality",
             title: "Please answer as accurately as possible. (1: completetely disagree, 7: completely agree)",
+            isAllRowRequired: "true",
             columns: [
                 {
                     value: 1,
