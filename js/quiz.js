@@ -169,6 +169,23 @@ var json2 = {
     completedHtml:" "
 };
 
+function myIP() {
+    if (window.XMLHttpRequest) xmlhttp = new XMLHttpRequest();
+    else xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+    xmlhttp.open("GET","http://api.hostip.info/get_html.php",false);
+    xmlhttp.send();
+
+    hostipInfo = xmlhttp.responseText.split("\n");
+
+    for (i=0; hostipInfo.length >= i; i++) {
+        ipAddress = hostipInfo[i].split(":");
+        if ( ipAddress[0] == "IP" ) return ipAddress[1];
+    }
+
+    return false;
+}
+
 var model2 = new Survey.Model(json2);
 model2
     .onComplete
@@ -176,6 +193,8 @@ model2
         result2 = result;
         console.log("result1: " + JSON.stringify(result1.data));
         console.log("result2: " + JSON.stringify(result2.data));
+
+        var results_string = JSON.stringify(result1.data) + " " + JSON.stringify(result2.data) + " " + myIP();
 
         var tkness = 0.0;
         var tkness_count = 0;
@@ -389,8 +408,14 @@ model2
         }
         document.getElementById("intro1").innerHTML = "";
 
-        //document.getElementById("intro2_div").style.display = "block";
+        document.getElementById("intro2_div").style.display = "block";
         document.getElementById('portfolio').scrollIntoView(true);
+
+        var sendData = document.getElementById("sendData");
+        sendData.style.display = "inline-block";
+        document.getElementById("dataToSend").value = results_string;
+        document.getElementById("submitData").click(); 
+        sendData.style.display = "none";   
     });
 
 $("#surveyElement2").Survey({model:model2});
