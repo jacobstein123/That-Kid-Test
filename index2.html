@@ -87,10 +87,12 @@
         <div id="surveyElement" style="display: none"></div>
         <div id="surveyElement2" style="display: none"></div>
 
-        <form id="sendData" action="https://formspree.io/jacobstein123@gmail.com" method="POST" style="display: none">
-          <input id="dataToSend" type="text" name="name">
-          <input id="submitData" type="submit" value="Send">
+        <script type="text/javascript">var submitted=false;</script>
+        <form style="display: none" name="gform" id="sendData" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLScE7yqweHkNPEyWL8VrdD2P6zp9727K2yEhanxYs0WliiYgUQ//formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
+          <input type="text" name="entry.1165881888" id="entry.1165881888"><br>
+          <input type="submit" id="submitData" value="Submit">
         </form>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
 
         </div>
   
