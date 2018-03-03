@@ -59,9 +59,6 @@ var json = {
                     text: "I refer to texts that were not assigned for class."
                 }, {
                     value: "12",
-                    text: "My contributions lead to further discussion in class."
-                }, {
-                    value: "13",
                     text: "I discuss assigned readings even when I did not do the readings because I can make\
                             a meaningful contribution without having read it."
                 }
@@ -161,7 +158,7 @@ var json2 = {
                     text: "Peers and professors do not seem to understand my point right away, so I have to elaborate for a long time."
                 }, {
                     value: "12",
-                    text: "The person next to me thinks I am smart."
+                    text: "I am intelligent."
                 }, {
                     value: "13",
                     text: "I am a that kid."
@@ -261,10 +258,7 @@ model2
         tkness += parseInt(result1["11"]) / 5.0;
         tkness_count++;
 
-        intelligence += parseInt(result1["13"]) / 5.0;
-        intelligence_count++;
-
-        tkness += parseInt(result1["13"]) / 5.0;
+        tkness += parseInt(result1["12"]) / 5.0;
         tkness_count++;
 
         //result2:
@@ -339,7 +333,7 @@ model2
         var peer_percent = peer/peer_count;
         var faculty_percent = faculty/faculty_count;
 
-        console.log("TKNESS: " + tkness/tkness_count 
+        console.log("tkness: "+ tkness + " count " + tkness_count +" TKNESS: " + tkness/tkness_count 
             + "\nHOSTILITY: " + hostility/hostility_count 
             + "\nPEER: " + peer/peer_count
             + "\nFACULTY: " + faculty/faculty_count);
@@ -381,16 +375,17 @@ model2
             tktype += "F";
             description += " <b>F</b>aculty-oriented";
         }
+        var tki_desc = "</br></br><font size=2>*That Kid Index (from 0 to 1)"
         if (tkness_percent < .5){
             document.getElementById("result").innerHTML = "You are not a That Kid!\
-                Confidence: "+(Math.round(100 * (1 - tkness_percent))) + 
-                "%</br> But if you were, your TK type would be...</br>\
-                <font size=8><b>"+ tktype+": "+names[tktype] + "</b></font></br>"+description;
+                *TKI: "+(Math.round(100 * tkness_percent))/100. + 
+                "</br> But if you were, your TK type would be...</br>\
+                <font size=8><b>"+ tktype+": "+names[tktype] + "</b></font></br>"+description+tki_desc;
         }
         else {
             document.getElementById("result").innerHTML = "You are a That Kid!\
-                Confidence: "+(Math.round(100 * tkness_percent)) + "%</br>\
-                Your TK type is...</br><font size=8><b>" + tktype+": "+names[tktype] + "</b></font></br>"+description;
+                *TKI: "+(Math.round(100 * tkness_percent))/100. + "</br>\
+                Your TK type is...</br><font size=8><b>" + tktype+": "+names[tktype] + "</b></font></br>"+description+tki_desc;
         }
         document.getElementById("intro1").innerHTML = "";
 
