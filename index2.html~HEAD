@@ -98,7 +98,7 @@
         <hr class="star-light mb-5">
         <div class="row">
           <div class="col-lg-4 ml-auto">
-            <p class="lead">The TK Test is based on decades of psychological research at the University of Chicago and builds upon the work of respected scientists such as Isabel Briggs Myers and Katherine Cook Briggs.
+            <p class="lead">The TK Test is based on decades of psychological research at the University of Chicago and builds upon the work of respected scientists including but not limited to Myers-Briggs, Jung, and Freud.
             </p>
           </div>
           <div class="col-lg-4 mr-auto">
@@ -112,7 +112,7 @@
 
     <div class="copyright py-4 text-center text-white">
       <div class="container">
-        <small>Copyright &copy; Jaehwan Song, Jack Toole, Jacob Stein 2018</small>
+        <small>Copyright &copy; The That Kid Test 2018</small>
       </div>
     </div>
 
