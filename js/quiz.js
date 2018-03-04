@@ -1,3 +1,5 @@
+var completed = false;
+
 var json = {
     questions: [
         {
@@ -394,14 +396,16 @@ model2
         document.getElementById("intro2_div").style.display = "none";
         document.getElementById('portfolio').scrollIntoView(true);
 
-        
-        var sendData = document.getElementById("sendData");
-        sendData.style.display = "inline-block";
-        document.getElementById("entry.1165881888").value = results_string + " TK percent: " + tkness_percent + 
-            " intelligence_percent: " + intelligence_percent + " hostility_percent: "+hostility_percent 
-            + " peer_percent: " + peer_percent + " faculty_percent: "+faculty_percent;
-        document.getElementById("submitData").click(); 
-        sendData.style.display = "none";   
+        if (!completed){
+            var sendData = document.getElementById("sendData");
+            sendData.style.display = "inline-block";
+            document.getElementById("entry.1165881888").value = results_string + " TK percent: " + tkness_percent + 
+                " intelligence_percent: " + intelligence_percent + " hostility_percent: "+hostility_percent 
+                + " peer_percent: " + peer_percent + " faculty_percent: "+faculty_percent;
+            document.getElementById("submitData").click(); 
+            sendData.style.display = "none";   
+            completed = true;
+        }
         
     });
 
