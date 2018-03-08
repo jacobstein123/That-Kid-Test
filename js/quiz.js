@@ -1,4 +1,6 @@
-var completed = false;
+var indentifier = Math.floor(Math.random() * 10000000);
+var ID = "ID: "+indentifier;
+console.log(ID);
 
 var json = {
     questions: [
@@ -382,13 +384,13 @@ model2
         var tki_desc = "</br></br><font size=2>*That Kid Index (from 0 to 1)"
         if (tkness_percent < .5){
             document.getElementById("result").innerHTML = "You are not a That Kid!\
-                *TKI: "+(Math.round(100 * tkness_percent))/100. + 
-                "</br> But if you were, your TK type would be...</br>\
+                TKI: "+(Math.round(100 * tkness_percent))/100. + 
+                "*</br> But if you were, your TK type would be...</br>\
                 <font size=8><b>"+ tktype+": "+names[tktype] + "</b></font></br>"+description+tki_desc;
         }
         else {
             document.getElementById("result").innerHTML = "You are a That Kid!\
-                *TKI: "+(Math.round(100 * tkness_percent))/100. + "</br>\
+                TKI: "+(Math.round(100 * tkness_percent))/100. + "*</br>\
                 Your TK type is...</br><font size=8><b>" + tktype+": "+names[tktype] + "</b></font></br>"+description+tki_desc;
         }
         document.getElementById("intro1").innerHTML = "";
@@ -396,16 +398,14 @@ model2
         document.getElementById("intro2_div").style.display = "none";
         document.getElementById('portfolio').scrollIntoView(true);
 
-        if (!completed){
-            var sendData = document.getElementById("sendData");
-            sendData.style.display = "inline-block";
-            document.getElementById("entry.1165881888").value = results_string + " TK percent: " + tkness_percent + 
-                " intelligence_percent: " + intelligence_percent + " hostility_percent: "+hostility_percent 
-                + " peer_percent: " + peer_percent + " faculty_percent: "+faculty_percent;
-            document.getElementById("submitData").click(); 
-            sendData.style.display = "none";   
-            completed = true;
-        }
+        var sendData = document.getElementById("sendData");
+        sendData.style.display = "inline-block";
+        document.getElementById("entry.1165881888").value = ID + " " + results_string + " TK: " + tkness_percent + 
+            " intel: " + intelligence_percent + " hostility: "+hostility_percent 
+            + " peer: " + peer_percent + " faculty: "+faculty_percent;
+        document.getElementById("submitData").click(); 
+        sendData.style.display = "none";   
+        completed = true;
         
     });
 
