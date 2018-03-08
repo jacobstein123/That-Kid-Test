@@ -173,6 +173,7 @@ var json2 = {
     completedHtml:" "
 };
 
+
 var model2 = new Survey.Model(json2);
 model2
     .onComplete
@@ -200,151 +201,158 @@ model2
 
         result1 = result1.data["Quality"];
         result2 = result2.data["Quality"];
+
+        function parseInt2(a) {
+        	return parseInt(a) - 1;
+        }
+
         //result1:
-        tkness += parseInt(result1["1"])/5.0;
+        tkness += parseInt2(result1["1"])/4.0;
         tkness_count++;
-        hostility += parseInt(result1["1"]) / 5.0;
+        hostility += parseInt2(result1["1"]) / 4.0;
         hostility_count++;
-        faculty += parseInt(result1["1"]) / 5.0;
+        faculty += parseInt2(result1["1"]) / 4.0;
         faculty_count++;
 
-        tkness += parseInt(result1["2"]) / 5.0;
+        tkness += parseInt2(result1["2"]) / 4.0;
         tkness_count++;
-        peer += parseInt(result1["2"]) / 5.0;
+        peer += parseInt2(result1["2"]) / 4.0;
         peer_count++;
 
-        tkness += (5 - parseInt(result1["3"])) / 5.0;
+        tkness += (5 - parseInt2(result1["3"])) / 4.0;
         tkness_count++;
-        peer += (5 - parseInt(result1["3"])) / 5.0;
+        peer += (5 - parseInt2(result1["3"])) / 4.0;
         peer_count++;
-        hostility += (5 - parseInt(result1["3"])) / 5.0;
+        hostility += (5 - parseInt2(result1["3"])) / 4.0;
         hostility_count++;
 
-        tkness += parseInt(result1["4"]) / 5.0;
+        tkness += parseInt2(result1["4"]) / 4.0;
         tkness_count++;
 
-        tkness += parseInt(result1["5"]) / 5.0;
+        tkness += parseInt2(result1["5"]) / 4.0;
         tkness_count++;
-        faculty += parseInt(result1["5"]) / 5.0;
+        faculty += parseInt2(result1["5"]) / 4.0;
         faculty_count++;
 
-        tkness += (5 - parseInt(result1["6"])) / 5.0;
+        tkness += (5 - parseInt2(result1["6"])) / 4.0;
         tkness_count++;
-        peer += (5 - parseInt(result1["6"])) / 5.0;
+        peer += (5 - parseInt2(result1["6"])) / 4.0;
         peer_count++;
-        faculty += (5 - parseInt(result1["6"])) / 5.0;
+        faculty += (5 - parseInt2(result1["6"])) / 4.0;
         faculty_count++;
 
-        tkness += parseInt(result1["7"]) / 5.0;
+        tkness += parseInt2(result1["7"]) / 4.0;
         tkness_count++;
-        hostility += parseInt(result1["7"]) / 5.0;
+        hostility += parseInt2(result1["7"]) / 4.0;
         hostility_count++;
-        faculty += parseInt(result1["7"]) / 5.0;
+        faculty += parseInt2(result1["7"]) / 4.0;
         faculty_count++;
 
-        tkness += parseInt(result1["8"]) / 5.0;
+        tkness += parseInt2(result1["8"]) / 4.0;
         tkness_count++;
-        hostility += parseInt(result1["8"]) / 5.0;
+        hostility += parseInt2(result1["8"]) / 4.0;
         hostility_count++;
-        faculty += parseInt(result1["8"]) / 5.0;
+        faculty += parseInt2(result1["8"]) / 4.0;
         faculty_count++;
-        peer += parseInt(result1["8"]) / 5.0;
+        peer += parseInt2(result1["8"]) / 4.0;
         peer_count++;
 
-        tkness += parseInt(result1["9"]) / 5.0;
+        tkness += parseInt2(result1["9"]) / 4.0;
         tkness_count++;
-        hostility += parseInt(result1["9"]) / 5.0;
+        hostility += parseInt2(result1["9"]) / 4.0;
         hostility_count++
-        faculty += parseInt(result1["9"]) / 5.0;
+        faculty += parseInt2(result1["9"]) / 4.0;
         faculty_count++;
 
-        tkness += parseInt(result1["10"]) / 5.0;
+        tkness += parseInt2(result1["10"]) / 4.0;
         tkness_count++;
-        peer += parseInt(result1["10"]) / 5.0;
+        peer += parseInt2(result1["10"]) / 4.0;
         peer_count++;
 
-        tkness += parseInt(result1["11"]) / 5.0;
+        tkness += parseInt2(result1["11"]) / 4.0;
         tkness_count++;
 
-        tkness += parseInt(result1["12"]) / 5.0;
+        tkness += parseInt2(result1["12"]) / 4.0;
         tkness_count++;
 
         //result2:
-        tkness += (7 - parseInt(result2["1"])) / 7.0;
+        tkness += (7 - parseInt2(result2["1"])) / 6.0;
         tkness_count++;
-        peer += (7 - parseInt(result2["1"])) / 7.0;
+        peer += (7 - parseInt2(result2["1"])) / 6.0;
         peer_count++;
 
-        tkness += parseInt(result2["2"]) / 7.0;
+        tkness += parseInt2(result2["2"]) / 6.0;
         tkness_count++;
 
-        tkness += parseInt(result2["3"]) / 7.0;
+        tkness += parseInt2(result2["3"]) / 6.0;
         tkness_count++;
-        peer += parseInt(result2["3"]) / 7.0;
+        peer += parseInt2(result2["3"]) / 6.0;
         peer_count++;
-        hostility += parseInt(result2["3"]) / 7.0;
+        hostility += parseInt2(result2["3"]) / 6.0;
         hostility_count++;
 
-        tkness += parseInt(result2["4"]) / 7.0;
+        tkness += parseInt2(result2["4"]) / 6.0;
         tkness_count++;
-        faculty += parseInt(result2["4"]) / 7.0;
+        faculty += parseInt2(result2["4"]) / 6.0;
         faculty_count++;
 
-        tkness += parseInt(result2["5"]) / 7.0;
+        tkness += parseInt2(result2["5"]) / 6.0;
         tkness_count++;
-        faculty += parseInt(result2["5"]) / 7.0;
+        faculty += parseInt2(result2["5"]) / 6.0;
         faculty_count++;
 
-        tkness += parseInt(result2["6"]) / 7.0;
+        tkness += parseInt2(result2["6"]) / 6.0;
         tkness_count++;
-        peer += parseInt(result2["6"]) / 7.0;
+        peer += parseInt2(result2["6"]) / 6.0;
         peer_count++;
-        hostility += parseInt(result2["3"]) / 7.0;
+        hostility += parseInt2(result2["3"]) / 6.0;
         hostility_count++;
 
-        tkness += parseInt(result2["7"]) / 7.0;
+        tkness += parseInt2(result2["7"]) / 6.0;
         tkness_count++;
-        peer += parseInt(result2["7"]) / 7.0;
+        peer += parseInt2(result2["7"]) / 6.0;
         peer_count++;
 
-        tkness += parseInt(result2["8"]) / 7.0;
+        tkness += parseInt2(result2["8"]) / 6.0;
         tkness_count++;
-        faculty += parseInt(result2["8"]) / 7.0;
+        faculty += parseInt2(result2["8"]) / 6.0;
         faculty_count++;
-        hostility += parseInt(result2["3"]) / 7.0;
+        hostility += parseInt2(result2["3"]) / 6.0;
         hostility_count++;
 
-        tkness += parseInt(result2["9"]) / 7.0;
+        tkness += parseInt2(result2["9"]) / 6.0;
         tkness_count++;
 
-        tkness += (7 - parseInt(result2["10"])) / 7.0;
+        tkness += (7 - parseInt2(result2["10"])) / 6.0;
         tkness_count++;
-        faculty += (7 - parseInt(result2["10"])) / 7.0;
+        faculty += (7 - parseInt2(result2["10"])) / 6.0;
         faculty_count++;
 
-        tkness += parseInt(result2["11"]) / 7.0;
+        tkness += parseInt2(result2["11"]) / 6.0;
         tkness_count++;
-        peer += parseInt(result2["11"]) / 7.0;
+        peer += parseInt2(result2["11"]) / 6.0;
         peer_count++;
-        faculty += parseInt(result2["11"]) / 7.0;
+        faculty += parseInt2(result2["11"]) / 6.0;
         faculty_count++;
 
-        intelligence += parseInt(result2["12"]) / 7.0;
+        intelligence += parseInt2(result2["12"]) / 6.0;
         intelligence_count++;
 
-        tkness += parseInt(result2["13"]) / 7.0;
+        tkness += parseInt2(result2["13"]) / 6.0;
         tkness_count++;
 
-        var tkness_percent = tkness/tkness_count;
+        var tkness_percent = (tkness/tkness_count) - 0.08;
+        if (tkness_percent <= 0)
+        	tkness_percent = 0.01;
         var intelligence_percent = intelligence/intelligence_count;
         var hostility_percent = hostility/hostility_count;
         var peer_percent = peer/peer_count;
         var faculty_percent = faculty/faculty_count;
 
-        console.log("tkness: "+ tkness + " count " + tkness_count +" TKNESS: " + tkness/tkness_count 
-            + "\nHOSTILITY: " + hostility/hostility_count 
-            + "\nPEER: " + peer/peer_count
-            + "\nFACULTY: " + faculty/faculty_count);
+        console.log("tkness: "+ tkness + " count " + tkness_count +" TKNESS: " + tkness_percent
+            + "\nHOSTILITY: " + hostility_percent
+            + "\nPEER: " + peer_percent
+            + "\nFACULTY: " + faculty_percent);
 
         var names = {
             "IHF":"The Critic",
@@ -411,7 +419,7 @@ model2
 
         var sendData = document.getElementById("sendData");
         sendData.style.display = "inline-block";
-        document.getElementById("entry.1165881888").value = ID + " " + results_string + " TK: " + tkness_percent + 
+        document.getElementById("entry.1165881888").value = ID + " " + tktype + " " + results_string + " TK: " + tkness_percent + 
             " intel: " + intelligence_percent + " hostility: "+hostility_percent 
             + " peer: " + peer_percent + " faculty: "+faculty_percent;
         document.getElementById("submitData").click(); 
