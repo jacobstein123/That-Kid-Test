@@ -217,6 +217,8 @@ model2
         tkness_count++;
         peer += (5 - parseInt(result1["3"])) / 5.0;
         peer_count++;
+        hostility += (5 - parseInt(result1["3"])) / 5.0;
+        hostility_count++;
 
         tkness += parseInt(result1["4"]) / 5.0;
         tkness_count++;
@@ -346,13 +348,16 @@ model2
 
         var names = {
             "IHF":"The Critic",
-            "IHP":"The Asshole",
+     		"IHP":"The Asshole",
+            "IHA":"The Asshole",
             "INP":"The Guest Lecturer",
             "INF":"The Disciple",
+            "INA":"The Uninvited Philosopher",
             "UHF":"The Heckler",
-            "UHP":"The Flailer",
-            "UNP":"The Rambler",
-            "UNF":"The Suck-up"
+            "UHP":"The Brute",
+            "UHA":"The Flailer",
+            "UNA":"The Rambler",
+            "UNF":"The Tryhard"
         };
 
         var description = "";
@@ -373,14 +378,20 @@ model2
             tktype += "N";
             description += " <b>N</b>on-hostile";
         }
-        if (peer_percent > faculty_percent) {
-            tktype += "P";
-            description += " <b>P</b>eer-oriented";
+        if ((tktype == "UN") || peer_percent > .5 && faculty_percent > .5) {
+        	tktype += "A";
+        	description += " <b>A</b>ll-inclusive";
         }
         else{
-            tktype += "F";
-            description += " <b>F</b>aculty-oriented";
-        }
+	        if (peer_percent > faculty_percent) {
+	            tktype += "P";
+	            description += " <b>P</b>eer-oriented";
+	        }
+	        else{
+	            tktype += "F";
+	            description += " <b>F</b>aculty-oriented";
+	        }
+	    }
         var tki_desc = "</br></br><font size=2>*That Kid Index (from 0 to 1)"
         if (tkness_percent < .5){
             document.getElementById("result").innerHTML = "You are not a That Kid!\
